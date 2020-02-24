@@ -231,6 +231,20 @@
                   is_checked=realm_inline_url_embed_preview
                   label=admin_settings_label.realm_inline_url_embed_preview}}
                 {{/if}}
+				
+				{{> settings_checkbox
+                  setting_name="testFeature"
+                  prefix="id_"
+                  is_checked="asd"
+                  label="Hej"}}
+				  
+				  <div class="Test">
+                    <label for="id_URL_name">{{t "URL test" }}</label>
+                    <input type="text" id="id_URLasd_name" name="URL_name" class="admin-realm-name setting-widget prop-element"
+                      autocomplete="off" data-setting-widget-type="text"
+                      value="{{realm_URL_name}}" maxlength="40" />
+                </div>
+                
             </div>
         </div>
     </form>

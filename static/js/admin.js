@@ -14,7 +14,7 @@ const admin_settings_label = {
     realm_message_content_allowed_in_email_notifications:
         i18n.t("Allow message content in missed message emails"),
     realm_digest_emails_enabled: i18n.t("Send weekly digest emails to inactive users"),
-
+    realm_testFeature: i18n.t("Hej"),
     // Organization permissions
     realm_name_changes_disabled: i18n.t("Prevent users from changing their name"),
     realm_email_changes_disabled: i18n.t("Prevent users from changing their email address"),
@@ -23,8 +23,10 @@ const admin_settings_label = {
 
 exports.build_page = function () {
     const options = {
+		realm_testFeature: page_params.testFeature,
         custom_profile_field_types: page_params.custom_profile_field_types,
         realm_name: page_params.realm_name,
+		realm_URL_name: page_params.URL_name,
         realm_available_video_chat_providers: page_params.realm_available_video_chat_providers,
         realm_description: page_params.realm_description,
         realm_inline_image_preview: page_params.realm_inline_image_preview,

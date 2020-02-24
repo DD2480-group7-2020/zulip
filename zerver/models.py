@@ -141,12 +141,16 @@ class Realm(models.Model):
 
     # User-visible display name and description used on e.g. the organization homepage
     name = models.CharField(max_length=MAX_REALM_NAME_LENGTH, null=True)  # type: Optional[str]
+    URL_name = models.TextField(default="Hej2")
     description = models.TextField(default=u"")  # type: str
 
     # A short, identifier-like name for the organization.  Used in subdomains;
     # e.g. on a server at example.com, an org with string_id `foo` is reached
     # at `foo.example.com`.
     string_id = models.CharField(max_length=MAX_REALM_SUBDOMAIN_LENGTH, unique=True)  # type: str
+	
+	# test
+    testFeature= models.BooleanField(default=False) # type: bool
 
     date_created = models.DateTimeField(default=timezone_now)  # type: datetime.datetime
     deactivated = models.BooleanField(default=False)  # type: bool
@@ -329,6 +333,7 @@ class Realm(models.Model):
     property_types = dict(
         add_emoji_by_admins_only=bool,
         allow_edit_history=bool,
+		testFeature=bool,
         allow_message_deleting=bool,
         bot_creation_policy=int,
         create_stream_policy=int,
@@ -351,6 +356,7 @@ class Realm(models.Model):
         mandatory_topics=bool,
         message_retention_days=(int, type(None)),
         name=str,
+		URL_name=str,
         name_changes_disabled=bool,
         avatar_changes_disabled=bool,
         emails_restricted_to_domains=bool,

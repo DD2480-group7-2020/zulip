@@ -46,6 +46,8 @@ def update_realm(
         allow_message_deleting: Optional[bool]=REQ(validator=check_bool, default=None),
         message_content_delete_limit_seconds: Optional[int]=REQ(converter=to_non_negative_int, default=None),
         allow_message_editing: Optional[bool]=REQ(validator=check_bool, default=None),
+		testFeature=REQ(validator=check_string, default=None),
+		#testFeature=REQ(validator=[bool], default=None),
         allow_community_topic_editing: Optional[bool]=REQ(validator=check_bool, default=None),
         mandatory_topics: Optional[bool]=REQ(validator=check_bool, default=None),
         message_content_edit_limit_seconds: Optional[int]=REQ(converter=to_non_negative_int, default=None),

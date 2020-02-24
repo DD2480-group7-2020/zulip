@@ -226,6 +226,12 @@ function get_property_value(property_name) {
         }
         return "by_anyone";
     }
+	
+	    if (property_name === 'testFeature') {
+			console.log("hejsan")
+        
+        return "by_anyone";
+    }
 
     if (property_name === 'realm_default_twenty_four_hour_time') {
         return JSON.stringify(page_params[property_name]);
@@ -712,6 +718,7 @@ exports.build_page = function () {
     }
 
     function save_discard_widget_status_handler(subsection) {
+		console.log(subsection);
         subsection.find('.subsection-failed-status p').hide();
         subsection.find('.save-button').show();
         const properties_elements = get_subsection_property_elements(subsection);
