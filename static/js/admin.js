@@ -9,6 +9,7 @@ const admin_settings_label = {
     realm_signup_notifications_stream: i18n.t("New user notifications:"),
     realm_inline_image_preview: i18n.t("Show previews of uploaded and linked images"),
     realm_inline_url_embed_preview: i18n.t("Show previews of linked websites"),
+    realm_enable_first_message: i18n.t("Enable message"),
     realm_default_twenty_four_hour_time: i18n.t("Time format"),
     realm_send_welcome_emails: i18n.t("Send emails introducing Zulip to new users"),
     realm_message_content_allowed_in_email_notifications:
@@ -30,6 +31,7 @@ exports.build_page = function () {
         realm_inline_image_preview: page_params.realm_inline_image_preview,
         server_inline_image_preview: page_params.server_inline_image_preview,
         realm_inline_url_embed_preview: page_params.realm_inline_url_embed_preview,
+        realm_enable_first_message: page_params.realm_enable_first_message,
         server_inline_url_embed_preview: page_params.server_inline_url_embed_preview,
         realm_default_twenty_four_hour_time_values: settings_display.twenty_four_hour_time_values,
         realm_authentication_methods: page_params.realm_authentication_methods,

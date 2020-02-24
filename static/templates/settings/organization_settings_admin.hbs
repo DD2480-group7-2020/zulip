@@ -12,21 +12,23 @@
             </div>
             <div class="inline-block organization-settings-parent">
                 <div class="input-group">
-                    <label for="realm_msg_edit_limit_setting" class="dropdown-title">{{t "Allow message editing" }}</label>
-                    <select name="realm_msg_edit_limit_setting" id="id_realm_msg_edit_limit_setting" class="prop-element">
+                    <label for="realm_msg_edit_limit_setting"
+                        class="dropdown-title">{{t "Allow message editing" }}</label>
+                    <select name="realm_msg_edit_limit_setting" id="id_realm_msg_edit_limit_setting"
+                        class="prop-element">
                         {{#each msg_edit_limit_dropdown_values}}
                         <option value="{{@key}}">{{this.text}}</option>
                         {{/each}}
                     </select>
                     <div class="dependent-inline-block">
-                        <label for="id_realm_message_content_edit_limit_minutes" class="inline-block realm-time-limit-label">
+                        <label for="id_realm_message_content_edit_limit_minutes"
+                            class="inline-block realm-time-limit-label">
                             {{t 'N' }}:
                         </label>
                         <input type="text" id="id_realm_message_content_edit_limit_minutes"
-                          name="realm_message_content_edit_limit_minutes"
-                          class="admin-realm-time-limit-input prop-element"
-                          autocomplete="off"
-                          value="{{ realm_message_content_edit_limit_minutes }}"/>
+                            name="realm_message_content_edit_limit_minutes"
+                            class="admin-realm-time-limit-input prop-element" autocomplete="off"
+                            value="{{ realm_message_content_edit_limit_minutes }}" />
                     </div>
                 </div>
 
@@ -45,23 +47,25 @@
                 <div class="input-group">
                     <label for="realm_msg_delete_limit_setting" class="dropdown-title">
                         {{t "Allow message deleting" }}
-                        <i class="fa fa-info-circle settings-info-icon realm_allow_message_deleting_tooltip" data-toggle="tooltip"
-                          aria-hidden="true" title="{{t 'Administrators can always delete any message.' }}"/>
+                        <i class="fa fa-info-circle settings-info-icon realm_allow_message_deleting_tooltip"
+                            data-toggle="tooltip" aria-hidden="true"
+                            title="{{t 'Administrators can always delete any message.' }}" />
                     </label>
-                    <select name="realm_msg_delete_limit_setting" id="id_realm_msg_delete_limit_setting" class="prop-element">
+                    <select name="realm_msg_delete_limit_setting" id="id_realm_msg_delete_limit_setting"
+                        class="prop-element">
                         {{#each msg_delete_limit_dropdown_values}}
                         <option value="{{@key}}">{{this.text}}</option>
                         {{/each}}
                     </select>
                     <div class="dependent-inline-block">
-                        <label for="id_realm_message_content_delete_limit_minutes" class="inline-block realm-time-limit-label">
+                        <label for="id_realm_message_content_delete_limit_minutes"
+                            class="inline-block realm-time-limit-label">
                             {{t 'N' }}:
                         </label>
                         <input type="text" id="id_realm_message_content_delete_limit_minutes"
-                          name="realm_message_content_delete_limit_minutes"
-                          class="admin-realm-time-limit-input prop-element"
-                          autocomplete="off"
-                          value="{{ realm_message_content_delete_limit_minutes }}"/>
+                            name="realm_message_content_delete_limit_minutes"
+                            class="admin-realm-time-limit-input prop-element" autocomplete="off"
+                            value="{{ realm_message_content_delete_limit_minutes }}" />
                     </div>
                 </div>
             </div>
@@ -86,11 +90,10 @@
                   label=admin_settings_label.realm_digest_emails_enabled}}
                 {{/if}}
                 <div class="input-group">
-                    <label for="realm_digest_weekday" class="dropdown-title">{{t "Day of the week to send digests" }}</label>
-                    <select name="realm_digest_weekday"
-                      id="id_realm_digest_weekday"
-                      class="setting-widget prop-element"
-                      data-setting-widget-type="integer">
+                    <label for="realm_digest_weekday"
+                        class="dropdown-title">{{t "Day of the week to send digests" }}</label>
+                    <select name="realm_digest_weekday" id="id_realm_digest_weekday" class="setting-widget prop-element"
+                        data-setting-widget-type="integer">
                         <option value="0">{{t "Monday" }}</option>
                         <option value="1">{{t "Tuesday" }}</option>
                         <option value="2">{{t "Wednesday" }}</option>
@@ -120,15 +123,18 @@
             <div class="inline-block organization-settings-parent">
                 <div class="input-group">
                     <label for="realm_default_language" class="dropdown-title">{{t "Default language" }}</label>
-                    <select name="realm_default_language" class ="setting-widget prop-element" id="id_realm_default_language" data-setting-widget-type="text">
+                    <select name="realm_default_language" class="setting-widget prop-element"
+                        id="id_realm_default_language" data-setting-widget-type="text">
                         {{#each language_list}}
                         <option value='{{this.code}}'>{{this.name}}</option>
                         {{/each}}
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="realm_default_twenty_four_hour_time" class="dropdown-title">{{ admin_settings_label.realm_default_twenty_four_hour_time }}</label>
-                    <select name="realm_default_twenty_four_hour_time" class ="setting-widget prop-element" id="id_realm_default_twenty_four_hour_time" data-setting-widget-type="text">
+                    <label for="realm_default_twenty_four_hour_time"
+                        class="dropdown-title">{{ admin_settings_label.realm_default_twenty_four_hour_time }}</label>
+                    <select name="realm_default_twenty_four_hour_time" class="setting-widget prop-element"
+                        id="id_realm_default_twenty_four_hour_time" data-setting-widget-type="text">
                         {{#each realm_default_twenty_four_hour_time_values}}
                         <option value='{{ this.value }}'>{{ this.description }}</option>
                         {{/each}}
@@ -147,18 +153,17 @@
                     <label for="realm_video_chat_provider" class="dropdown-title">
                         {{t 'Video chat provider' }}
                     </label>
-                    <select name="realm_video_chat_provider" class ="setting-widget prop-element" id="id_realm_video_chat_provider" data-setting-widget-type="integer">
+                    <select name="realm_video_chat_provider" class="setting-widget prop-element"
+                        id="id_realm_video_chat_provider" data-setting-widget-type="integer">
                         {{#each realm_available_video_chat_providers}}
                         <option value='{{this.id}}'>{{this.name}}</option>
                         {{/each}}
                     </select>
                     <div id="google_hangouts_domain">
                         <label>{{t 'Domain for your <a href="https://gsuite.google.com" target="_blank">G Suite team</a> (required)' }}:</label>
-                        <input type="text" id="id_realm_google_hangouts_domain"
-                          name="realm_google_hangouts_domain"
-                          autocomplete="off"
-                          class="admin-realm-google-hangouts-domain setting-widget prop-element"
-                          data-setting-widget-type="text"/>
+                        <input type="text" id="id_realm_google_hangouts_domain" name="realm_google_hangouts_domain"
+                            autocomplete="off" class="admin-realm-google-hangouts-domain setting-widget prop-element"
+                            data-setting-widget-type="text" />
                     </div>
                     <div id="zoom_help_text" class="zoom_credentials">
                         <p>
@@ -168,27 +173,21 @@
                     </div>
                     <div id="zoom_user_id" class="zoom_credentials">
                         <label>{{t 'Zoom user ID or email address (required)' }}:</label>
-                        <input type="text" id="id_realm_zoom_user_id"
-                          name="realm_zoom_user_id"
-                          autocomplete="off"
-                          class="admin-realm-zoom-field setting-widget prop-element"
-                          data-setting-widget-type="text"/>
+                        <input type="text" id="id_realm_zoom_user_id" name="realm_zoom_user_id" autocomplete="off"
+                            class="admin-realm-zoom-field setting-widget prop-element"
+                            data-setting-widget-type="text" />
                     </div>
                     <div id="zoom_api_key" class="zoom_credentials">
                         <label>{{t 'Zoom API key (required)' }}:</label>
-                        <input type="text" id="id_realm_zoom_api_key"
-                          name="realm_zoom_api_key"
-                          autocomplete="off"
-                          class="admin-realm-zoom-field setting-widget prop-element"
-                          data-setting-widget-type="text"/>
+                        <input type="text" id="id_realm_zoom_api_key" name="realm_zoom_api_key" autocomplete="off"
+                            class="admin-realm-zoom-field setting-widget prop-element"
+                            data-setting-widget-type="text" />
                     </div>
                     <div id="zoom_api_secret" class="zoom_credentials">
                         <label>{{t 'Zoom API secret (required if changed)' }}:</label>
-                        <input type="text" id="id_realm_zoom_api_secret"
-                          name="realm_zoom_api_secret"
-                          autocomplete="off"
-                          class="admin-realm-zoom-field setting-widget prop-element"
-                          data-setting-widget-type="text"/>
+                        <input type="text" id="id_realm_zoom_api_secret" name="realm_zoom_api_secret" autocomplete="off"
+                            class="admin-realm-zoom-field setting-widget prop-element"
+                            data-setting-widget-type="text" />
                     </div>
                 </div>
 
@@ -200,14 +199,12 @@
 
                 {{#if false}}
                 <div class="input-group">
-                    <label for="realm_message_retention_days"
-                      id="id_realm_message_retention_days_label">
+                    <label for="realm_message_retention_days" id="id_realm_message_retention_days_label">
                         {{t 'Messages retention period in days (blank means messages are retained forever)' }}
                     </label>
-                    <input type="text" id="id_realm_message_retention_days"
-                      name="realm_message_retention_days"
-                      class="admin-realm-message-retention-days prop-element"
-                      value="{{ realm_message_retention_days }}"/>
+                    <input type="text" id="id_realm_message_retention_days" name="realm_message_retention_days"
+                        class="admin-realm-message-retention-days prop-element"
+                        value="{{ realm_message_retention_days }}" />
                 </div>
                 {{/if}}
                 {{> settings_checkbox
@@ -231,6 +228,18 @@
                   is_checked=realm_inline_url_embed_preview
                   label=admin_settings_label.realm_inline_url_embed_preview}}
                 {{/if}}
+
+                {{> settings_checkbox
+                    setting_name="realm_enable_first_message"
+                    prefix="id_"
+                    is_checked=realm_enable_first_message
+                    label=admin_settings_label.realm_enable_first_message
+                }}
+
+                <!--
+                    dwdwdsd
+                -->
+
             </div>
         </div>
     </form>

@@ -753,6 +753,7 @@ exports.build_page = function () {
     });
 
     exports.save_organization_settings = function (data, save_button) {
+        console.log("saved data: ", data);
         const subsection_parent = save_button.closest('.org-subsection-parent');
         const save_btn_container = subsection_parent.find('.save-button-controls');
         const failed_alert_elem = subsection_parent.find('.subsection-failed-status p');
@@ -809,7 +810,9 @@ exports.build_page = function () {
             data.signup_notifications_stream_id = JSON.stringify(
                 parseInt($('#id_realm_signup_notifications_stream').data('stream-id'), 10));
         } else if (subsection === 'other_settings') {
+            console.log("Other settings: ");
             let new_message_retention_days = $("#id_realm_message_retention_days").val();
+            console.log("new message?? ", new_message_retention_days);
 
             if (parseInt(new_message_retention_days, 10).toString() !== new_message_retention_days
                 && new_message_retention_days !== "") {
@@ -870,8 +873,11 @@ exports.build_page = function () {
     }
 
     function populate_data_for_request(subsection) {
+        console.log("subsection: ", subsection);
         const data = {};
         const properties_elements = get_subsection_property_elements(subsection);
+
+        console.log("")
 
         for (let input_elem of properties_elements) {
             input_elem = $(input_elem);
@@ -902,8 +908,12 @@ exports.build_page = function () {
         e.stopPropagation();
         const save_button = $(e.currentTarget);
         const subsection_id = save_button.attr('id').replace("org-submit-", "");
+        console.log("subsection_id: ", subsection_id);
         const subsection = subsection_id.split('-').join('_');
+        console.log("subsection: ", subsection);
         const subsection_elem = save_button.closest('.org-subsection-parent');
+
+        console.log("subsection_elem: ", subsection_elem);
 
         let data = populate_data_for_request(subsection_elem);
         data = _.extend(data, get_complete_data_for_subsection(subsection));
