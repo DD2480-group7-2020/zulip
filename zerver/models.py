@@ -164,7 +164,10 @@ class Realm(models.Model):
     # Whether the organization has enabled inline image and URL previews.
     inline_image_preview = models.BooleanField(default=True)  # type: bool
     inline_url_embed_preview = models.BooleanField(default=False)  # type: bool
+
+    # Whether the admin have enable to show first visitor a link.
     enable_first_message = models.BooleanField(default=False) # type: bool
+    url_link = models.TextField(default='none')
 
     # Whether digest emails are enabled for the organization.
     digest_emails_enabled = models.BooleanField(default=False)  # type: bool
@@ -350,6 +353,7 @@ class Realm(models.Model):
         inline_image_preview=bool,
         inline_url_embed_preview=bool,
         enable_first_message=bool,
+        url_link=str,
         mandatory_topics=bool,
         message_retention_days=(int, type(None)),
         name=str,

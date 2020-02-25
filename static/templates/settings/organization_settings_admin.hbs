@@ -236,7 +236,37 @@
                     label=admin_settings_label.realm_enable_first_message
                 }}
 
+                {{#if realm_enable_first_message}}
+                    <label>This is lit</label>
+                {{/if}}
+
+                <div>
+                    <label>{{t admin_settings_label.realm_url_link}}</label>
+                    <input 
+                        type="text"
+                        id="id_realm_url_link"
+                        name="realm_url_link"
+                        autocomplete="off"
+                        class="settings-widget prop-element"
+                        data-setting-widget-type="text"
+                        value={{realm_url_link}}
+                    />
+                </div>
+
+                <div>
+                        <label>{{t 'Domain for your <a href="https://gsuite.google.com" target="_blank">G Suite team</a> (required)' }}:</label>
+                        <input type="text" id="id_realm_google_hangouts_domain" name="realm_google_hangouts_domain"
+                            autocomplete="off" class="prop-element"
+                            data-setting-widget-type="text" />
+                    </div>
+
                 <!--
+                    <div>
+                        <label>{{t admin_settings_label.realm_url_link }}:</label>
+                        <input type="text" id="id_realm_url_link" name="realm_url_link"
+                            autocomplete="off" class=""
+                            data-setting-widget-type="text" />
+                </div>
                     dwdwdsd
                 -->
 

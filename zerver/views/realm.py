@@ -43,6 +43,7 @@ def update_realm(
         inline_image_preview: Optional[bool]=REQ(validator=check_bool, default=None),
         inline_url_embed_preview: Optional[bool]=REQ(validator=check_bool, default=None),
         enable_first_message: Optional[bool]=REQ(validator=check_bool, default=None),
+        url_link: Optional[str]=REQ(validator=check_string, default=None),
         add_emoji_by_admins_only: Optional[bool]=REQ(validator=check_bool, default=None),
         allow_message_deleting: Optional[bool]=REQ(validator=check_bool, default=None),
         message_content_delete_limit_seconds: Optional[int]=REQ(converter=to_non_negative_int, default=None),

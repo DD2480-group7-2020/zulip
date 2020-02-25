@@ -686,6 +686,7 @@ exports.build_page = function () {
     function check_property_changed(elem) {
         elem = $(elem);
         const property_name = exports.extract_property_name(elem);
+        console.log("propery_name: ", property_name);
         let changed_val;
         let current_val = get_property_value(property_name);
 
@@ -812,7 +813,6 @@ exports.build_page = function () {
         } else if (subsection === 'other_settings') {
             console.log("Other settings: ");
             let new_message_retention_days = $("#id_realm_message_retention_days").val();
-            console.log("new message?? ", new_message_retention_days);
 
             if (parseInt(new_message_retention_days, 10).toString() !== new_message_retention_days
                 && new_message_retention_days !== "") {
@@ -873,11 +873,8 @@ exports.build_page = function () {
     }
 
     function populate_data_for_request(subsection) {
-        console.log("subsection: ", subsection);
         const data = {};
         const properties_elements = get_subsection_property_elements(subsection);
-
-        console.log("")
 
         for (let input_elem of properties_elements) {
             input_elem = $(input_elem);
@@ -908,12 +905,8 @@ exports.build_page = function () {
         e.stopPropagation();
         const save_button = $(e.currentTarget);
         const subsection_id = save_button.attr('id').replace("org-submit-", "");
-        console.log("subsection_id: ", subsection_id);
         const subsection = subsection_id.split('-').join('_');
-        console.log("subsection: ", subsection);
         const subsection_elem = save_button.closest('.org-subsection-parent');
-
-        console.log("subsection_elem: ", subsection_elem);
 
         let data = populate_data_for_request(subsection_elem);
         data = _.extend(data, get_complete_data_for_subsection(subsection));
