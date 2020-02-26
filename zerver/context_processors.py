@@ -82,6 +82,9 @@ def zulip_default_context(request: HttpRequest) -> Dict[str, Any]:
         find_team_link_disabled = False
         allow_search_engine_indexing = True
 
+    first_message_url = realm.url_link
+    enable_message = realm.enable_first_message
+
     apps_page_url = 'https://zulipchat.com/apps/'
     if settings.ZILENCER_ENABLED:
         apps_page_url = '/apps/'
@@ -120,6 +123,8 @@ def zulip_default_context(request: HttpRequest) -> Dict[str, Any]:
         'realm_icon': realm_icon,
         'root_domain_uri': settings.ROOT_DOMAIN_URI,
         'apps_page_url': apps_page_url,
+        'first_message_url': first_message_url,
+        'enable_message': enable_message,
         'open_realm_creation': settings.OPEN_REALM_CREATION,
         'development_environment': settings.DEVELOPMENT,
         'support_email': FromAddress.SUPPORT,

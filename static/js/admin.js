@@ -9,7 +9,7 @@ const admin_settings_label = {
     realm_signup_notifications_stream: i18n.t("New user notifications:"),
     realm_inline_image_preview: i18n.t("Show previews of uploaded and linked images"),
     realm_inline_url_embed_preview: i18n.t("Show previews of linked websites"),
-    realm_enable_first_message: i18n.t("Enable message"),
+    realm_enable_first_message: i18n.t("Enable link message"),
     realm_url_link: i18n.t("URL"),
     realm_default_twenty_four_hour_time: i18n.t("Time format"),
     realm_send_welcome_emails: i18n.t("Send emails introducing Zulip to new users"),
