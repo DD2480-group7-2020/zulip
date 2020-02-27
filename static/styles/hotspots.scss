@@ -289,3 +289,12 @@
     top: 50%;
     transform: perspective(1px) translateY(-75%);
 }
+
+#hotspot_intro_link_icon {
+    position: relative;
+    background-color: hsl(0, 0%, 100%);
+    top: 50%;
+    width: 640px;
+    height: 155px;
+    transform: perspective(1px) translateY(-75%);
+}

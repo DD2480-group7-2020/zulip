@@ -849,20 +849,20 @@ exports.initialize = function () {
         $('#hotspot_' + hotspot_name + '_icon').remove();
     });
 
-    $('body').on('click', '#hotspot-welcome-button', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        hotspots.post_hotspot_as_read('welcome');
-        hotspots.close_hotspot_icon($('#hotspot_welcome_icon'));
-    });
-
     $('body').on('click', '#hotspot-intro-button', function (e) {
         e.preventDefault();
         e.stopPropagation();
 
         hotspots.post_hotspot_as_read('intro_reply');
         hotspots.close_hotspot_icon($('#hotspot_intro_reply_icon'));
+    });
+
+    $('body').on('click', '.hotspot-link-button', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        hotspots.post_hotspot_as_read('intro_link');
+        hotspots.close_hotspot_icon($('#hotspot_intro_link_icon'));
     });
 
     // stop propagation

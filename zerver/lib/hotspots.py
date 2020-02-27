@@ -8,8 +8,8 @@ from zerver.models import UserProfile, UserHotspot
 from typing import List, Dict
 
 ALL_HOTSPOTS = {
-    'welcome': {
-        'title': 'Welcome message',
+    'intro_link': {
+        'title': _('Welcome message'),
         'description': _('Special message from admin.'),
     },
     'intro_reply': {
@@ -58,11 +58,13 @@ def get_next_hotspots(user: UserProfile) -> List[Dict[str, object]]:
         return []
 
     seen_hotspots = frozenset(UserHotspot.objects.filter(user=user).values_list('hotspot', flat=True))
-    hotspots = ['intro_reply', 'intro_streams', 'intro_topics', 'intro_gear', 'intro_compose']
+    hotspots =  ['intro_reply', 'intro_streams', 'intro_gear', 'intro_compose', 'intro_topics']
     org_url = ""
+
     if user.realm and user.realm.url_link != "" and user.realm.enable_first_message:
         org_url = user.realm.url_link
-        hotspots = ['welcome'] + hotspots
+        hotspots = ['intro_link'] + hotspots
+
     for hotspot in hotspots:
         if hotspot not in seen_hotspots:
             return [{
