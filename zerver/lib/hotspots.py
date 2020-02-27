@@ -58,7 +58,7 @@ def get_next_hotspots(user: UserProfile) -> List[Dict[str, object]]:
         return []
 
     seen_hotspots = frozenset(UserHotspot.objects.filter(user=user).values_list('hotspot', flat=True))
-    hotspots =  ['intro_reply', 'intro_streams', 'intro_topics', 'intro_gear', 'intro_compose']
+    hotspots = ['intro_reply', 'intro_streams', 'intro_topics', 'intro_gear', 'intro_compose']
     org_url = ""
     if user.realm and user.realm.url_link != "" and user.realm.enable_first_message:
         org_url = user.realm.url_link

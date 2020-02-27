@@ -686,7 +686,6 @@ exports.build_page = function () {
     function check_property_changed(elem) {
         elem = $(elem);
         const property_name = exports.extract_property_name(elem);
-        console.log("propery_name: ", property_name);
         let changed_val;
         let current_val = get_property_value(property_name);
 
@@ -754,7 +753,6 @@ exports.build_page = function () {
     });
 
     exports.save_organization_settings = function (data, save_button) {
-        console.log("saved data: ", data);
         const subsection_parent = save_button.closest('.org-subsection-parent');
         const save_btn_container = subsection_parent.find('.save-button-controls');
         const failed_alert_elem = subsection_parent.find('.subsection-failed-status p');
@@ -811,7 +809,6 @@ exports.build_page = function () {
             data.signup_notifications_stream_id = JSON.stringify(
                 parseInt($('#id_realm_signup_notifications_stream').data('stream-id'), 10));
         } else if (subsection === 'other_settings') {
-            console.log("Other settings: ");
             let new_message_retention_days = $("#id_realm_message_retention_days").val();
 
             if (parseInt(new_message_retention_days, 10).toString() !== new_message_retention_days

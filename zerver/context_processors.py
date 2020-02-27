@@ -65,10 +65,14 @@ def zulip_default_context(request: HttpRequest) -> Dict[str, Any]:
         realm_uri = settings.ROOT_DOMAIN_URI
         realm_name = None
         realm_icon = None
+        realm_first_message_url = ""
+        realm_enable_message = False
     else:
         realm_uri = realm.uri
         realm_name = realm.name
         realm_icon = get_realm_icon_url(realm)
+        realm_first_message_url = realm.url_link
+        realm_enable_message = realm.enable_first_message
 
     register_link_disabled = settings.REGISTER_LINK_DISABLED
     login_link_disabled = settings.LOGIN_LINK_DISABLED
@@ -81,9 +85,6 @@ def zulip_default_context(request: HttpRequest) -> Dict[str, Any]:
         login_link_disabled = True
         find_team_link_disabled = False
         allow_search_engine_indexing = True
-
-    first_message_url = realm.url_link
-    enable_message = realm.enable_first_message
 
     apps_page_url = 'https://zulipchat.com/apps/'
     if settings.ZILENCER_ENABLED:
@@ -123,8 +124,8 @@ def zulip_default_context(request: HttpRequest) -> Dict[str, Any]:
         'realm_icon': realm_icon,
         'root_domain_uri': settings.ROOT_DOMAIN_URI,
         'apps_page_url': apps_page_url,
-        'first_message_url': first_message_url,
-        'enable_message': enable_message,
+        'first_message_url': realm_first_message_url,
+        'enable_message': realm_enable_message,
         'open_realm_creation': settings.OPEN_REALM_CREATION,
         'development_environment': settings.DEVELOPMENT,
         'support_email': FromAddress.SUPPORT,

@@ -166,7 +166,7 @@ class Realm(models.Model):
     inline_url_embed_preview = models.BooleanField(default=False)  # type: bool
 
     # Whether the admin have enable to show first visitor a link.
-    enable_first_message = models.BooleanField(default=False) # type: bool
+    enable_first_message = models.BooleanField(default=False)  # type: bool
     url_link = models.TextField(default='none')
 
     # Whether digest emails are enabled for the organization.

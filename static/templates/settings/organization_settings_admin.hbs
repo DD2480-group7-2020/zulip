@@ -230,23 +230,23 @@
                 {{/if}}
 
                 {{> settings_checkbox
-                    setting_name="realm_enable_first_message"
-                    prefix="id_"
-                    is_checked=realm_enable_first_message
-                    label=admin_settings_label.realm_enable_first_message
-                }}
+                  setting_name="realm_enable_first_message"
+                  prefix="id_"
+                  is_checked=realm_enable_first_message
+                  label=admin_settings_label.realm_enable_first_message
+                  }}
 
                 <div>
                     <label>{{t admin_settings_label.realm_url_link}}</label>
-                    <input 
-                        type="text"
-                        id="id_realm_url_link"
-                        name="realm_url_link"
-                        autocomplete="off"
-                        class="settings-widget prop-element"
-                        data-setting-widget-type="text"
-                        value={{realm_url_link}}
-                    />
+                    <input
+                      type="text"
+                      id="id_realm_url_link"
+                      name="realm_url_link"
+                      autocomplete="off"
+                      class="settings-widget prop-element"
+                      data-setting-widget-type="text"
+                      value={{realm_url_link}}
+                      />
                 </div>
             </div>
         </div>
