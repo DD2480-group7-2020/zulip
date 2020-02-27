@@ -26,6 +26,15 @@
             </a>
         </div>
     </div>
+    <div data-process="org-message" class="alert alert-info red">
+        <span class="close" data-dismiss="alert" aria-label="{{ _('Close') }}">&times;</span>
+        <div data-step="1">
+          {% trans %} This website has an external website, please check it out! {% endtrans %}
+          <a class="alert-link" href="{{ org_url }}" target="_blank">
+              {{ org_url }}
+            </a>
+        </div>
+    </div>
 </div>
 <div class="header">
     <nav class="header-main rightside-userlist" id="top_navbar">

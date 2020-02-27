@@ -1011,6 +1011,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     avatar_version = models.PositiveSmallIntegerField(default=1)  # type: int
     avatar_hash = models.CharField(null=True, max_length=64)  # type: Optional[str]
 
+    shown_org_banner = models.BooleanField(default=False)
+
     TUTORIAL_WAITING  = u'W'
     TUTORIAL_STARTED  = u'S'
     TUTORIAL_FINISHED = u'F'

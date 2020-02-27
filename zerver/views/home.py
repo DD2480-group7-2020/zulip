@@ -304,6 +304,7 @@ def home_real(request: HttpRequest) -> HttpResponse:
         page_params['translation_data'] = get_language_translation_data(request_language)
 
     csp_nonce = generate_random_token(48)
+    page_params["shown_welcome"] = True
     if user_profile is not None:
         if user_profile.emojiset == UserProfile.TEXT_EMOJISET:
             # If current emojiset is `TEXT_EMOJISET`, then fallback to
@@ -317,6 +318,10 @@ def home_real(request: HttpRequest) -> HttpResponse:
         is_guest = user_profile.is_guest
         is_realm_admin = user_profile.is_realm_admin
         show_webathena = user_profile.realm.webathena_enabled
+        if not user_profile.shown_org_banner and user_profile.realm.enable_first_message:
+            page_params["shown_welcome"] = False
+            user_profile.shown_org_banner = True
+            user_profile.save(update_fields=["shown_org_banner"])
     else:  # nocoverage
         emojiset = UserProfile.GOOGLE_BLOB_EMOJISET
         night_mode = False
@@ -341,6 +346,7 @@ def home_real(request: HttpRequest) -> HttpResponse:
                                'is_admin': is_realm_admin,
                                'is_guest': is_guest,
                                'night_mode': night_mode,
+                               'org_url': user_profile.realm.url_link,
                                'navbar_logo_url': navbar_logo_url,
                                'show_webathena': show_webathena,
                                'embedded': narrow_stream is not None,

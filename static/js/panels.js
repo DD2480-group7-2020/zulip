@@ -18,9 +18,12 @@ const get_step = function ($process) {
 };
 
 exports.initialize = function () {
+    // show a welcome banner with external link if this setting is set.
+    if (!page_params.shown_welcome) {
+        exports.open($("[data-process='org-message']"));
     // if email has not been set up and the user is the admin, display a warning
     // to tell them to set up an email server.
-    if (page_params.warn_no_email === true && page_params.is_admin) {
+    } else if (page_params.warn_no_email === true && page_params.is_admin) {
         exports.open($("[data-process='email-server']"));
     } else {
         exports.open($("[data-process='notifications']"));
