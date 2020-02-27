@@ -849,7 +849,15 @@ exports.initialize = function () {
         $('#hotspot_' + hotspot_name + '_icon').remove();
     });
 
-    $('body').on('click', '.hotspot-button', function (e) {
+    $('body').on('click', '#hotspot-welcome-button', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        hotspots.post_hotspot_as_read('welcome');
+        hotspots.close_hotspot_icon($('#hotspot_welcome_icon'));
+    });
+
+    $('body').on('click', '#hotspot-intro-button', function (e) {
         e.preventDefault();
         e.stopPropagation();
 

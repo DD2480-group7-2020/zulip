@@ -1,5 +1,6 @@
 const render_hotspot_overlay = require('../templates/hotspot_overlay.hbs');
 const render_intro_reply_hotspot = require('../templates/intro_reply_hotspot.hbs');
+const render_welcome_hotspot = require('../templates/welcome_hotspot.hbs');
 
 // popover orientations
 const TOP = 'top';
@@ -12,6 +13,12 @@ const VIEWPORT_CENTER = 'viewport_center';
 // popover orientation can optionally be fixed here (property: popover),
 // otherwise popovers.compute_placement is used to compute orientation
 const HOTSPOT_LOCATIONS = new Map([
+    ["welcome", {
+        element: '.selected_message .messagebox-content',
+        offset_x: 0.85,
+        offset_y: 0.7,
+        popover: BOTTOM,
+    }],
     ["intro_reply", {
         element: '.selected_message .messagebox-content',
         offset_x: 0.85,
@@ -186,6 +193,13 @@ function place_popover(hotspot) {
 function insert_hotspot_into_DOM(hotspot) {
     if (hotspot.name === "intro_reply") {
         $('#bottom_whitespace').append(render_intro_reply_hotspot({}));
+        return;
+    }
+
+    if (hotspot.name === "welcome") {
+        $('#bottom_whitespace').append(render_welcome_hotspot({
+            org_url: hotspot.org_url,
+        }));
         return;
     }
 

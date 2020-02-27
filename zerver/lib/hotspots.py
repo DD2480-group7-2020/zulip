@@ -8,6 +8,10 @@ from zerver.models import UserProfile, UserHotspot
 from typing import List, Dict
 
 ALL_HOTSPOTS = {
+    'welcome': {
+        'title': 'Welcome message',
+        'description': _('Special message from admin.'),
+    },
     'intro_reply': {
         'title': _('Reply to a message'),
         'description': _('Click anywhere on a message to reply.'),
@@ -46,6 +50,7 @@ def get_next_hotspots(user: UserProfile) -> List[Dict[str, object]]:
             'name': hotspot,
             'title': ALL_HOTSPOTS[hotspot]['title'],
             'description': ALL_HOTSPOTS[hotspot]['description'],
+            'org_url': user.realm.url_link,
             'delay': 0,
         } for hotspot in ALL_HOTSPOTS]
 
@@ -53,12 +58,18 @@ def get_next_hotspots(user: UserProfile) -> List[Dict[str, object]]:
         return []
 
     seen_hotspots = frozenset(UserHotspot.objects.filter(user=user).values_list('hotspot', flat=True))
-    for hotspot in ['intro_reply', 'intro_streams', 'intro_topics', 'intro_gear', 'intro_compose']:
+    hotspots =  ['intro_reply', 'intro_streams', 'intro_topics', 'intro_gear', 'intro_compose']
+    org_url = ""
+    if user.realm and user.realm.url_link != "" and user.realm.enable_first_message:
+        org_url = user.realm.url_link
+        hotspots = ['welcome'] + hotspots
+    for hotspot in hotspots:
         if hotspot not in seen_hotspots:
             return [{
                 'name': hotspot,
                 'title': ALL_HOTSPOTS[hotspot]['title'],
                 'description': ALL_HOTSPOTS[hotspot]['description'],
+                'org_url': org_url,
                 'delay': 0.5,
             }]
 
